@@ -13,9 +13,15 @@ RUN apk add --update \
       ca-certificates \
       openssl \
       openssh-keygen \
+      curl \
+      jq \
+      unzip \
     && mkdir -p ${WORKER_KEY_HOME} ${WEB_KEY_HOME} ${VALUT_HOME} \
     && chmod +x /usr/local/bin/docker-entrypoint.sh \
     && ln -s /usr/local/bin/docker-entrypoint.sh /docker-entrypoint.sh \
+    && curl --location --retry 3 --silent https://releases.hashicorp.com/vault/0.9.0/vault_0.9.0_linux_amd64.zip -o /tmp/vault.zip \
+    && cd /tmp && unzip vault.zip \
+    && mv /tmp/vault /usr/local/bin/vault \
     # Clean caches and tmps
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*  \

@@ -27,6 +27,15 @@ listener "tcp" {
     tls_cert_file = "/vault/config/server.crt"
     tls_key_file = "/vault/config/server.key"
 }
+
+    cat << EOF > ${VAULT_HOME}/concourse_policy.hcl
+path "sys/*" {
+  policy = "deny"
+}
+
+path "secret/concourse/*" {
+  policy = "read"
+}
 EOF
 
 fi
