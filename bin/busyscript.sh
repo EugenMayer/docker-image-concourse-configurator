@@ -16,7 +16,6 @@ term_handler() {
 # on callback, kill the last background process, which is `tail -f /dev/null` and execute the specified handler
 trap 'kill ${!}; term_handler' SIGTERM
 
-echo "Started DW php code"
 # wait forever
 while true
 do

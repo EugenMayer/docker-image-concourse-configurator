@@ -2,13 +2,20 @@ FROM alpine:3.6
 
 ENV WEB_KEY_HOME=/concourse-keys/web
 ENV WORKER_KEY_HOME=/concourse-keys/worker
-ENV VAULT_HOME=/concourse-keys/vault
+ENV VAULT_SERVER_HOME=/vault/server
+ENV VAULT_CONCOURSE_CLIENT_HOME=/vault/concourse
 ENV VAULT_SUBJECT="/C=DE/ST=NS/L=Hannover/O=KontextWork/OU=IT/CN=vault"
 
-#ENV VALUT_DO_GENERATE=1
+# use this in docker-compose if you want to activate vault
+#ENV VAULT_ENABLED=1
+ENV VAULT_DO_AUTOCONFIGURE=1
+
 ADD bin/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 ADD bin/busyscript.sh /usr/local/bin/busyscript
+ADD bin/vault_client_cert.sh /usr/local/bin/vault_client_cert
 ADD bin/vault_init.sh /usr/local/bin/vault_init
+
+ADD vault_client_cert.conf /etc/vault_client_cert.conf
 
 RUN apk add --update \
       bash \
@@ -18,8 +25,8 @@ RUN apk add --update \
       curl \
       jq \
       unzip \
-    && mkdir -p ${WORKER_KEY_HOME} ${WEB_KEY_HOME} ${VALUT_HOME} \
-    && chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/vault_init /usr/local/bin/vault_init \
+    && mkdir -p ${WORKER_KEY_HOME} ${WEB_KEY_HOME} ${VAULT_SERVER_HOME} ${VAULT_CONCOURSE_CLIENT_HOME} \
+    && chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/vault_init /usr/local/bin/vault_init /usr/local/bin/vault_client_cert \
     && ln -s /usr/local/bin/docker-entrypoint.sh /docker-entrypoint.sh \
     && curl --location --retry 3 --silent https://releases.hashicorp.com/vault/0.9.0/vault_0.9.0_linux_amd64.zip -o /tmp/vault.zip \
     && cd /tmp && unzip vault.zip \
@@ -29,7 +36,7 @@ RUN apk add --update \
     && rm -rf /tmp/*  \
     && rm -rf /var/log/*
 
-VOLUME [ "${WEB_KEY_HOME}","${WORKER_KEY_HOME}", "${VAULT_HOME}" ]
+VOLUME [ "${WEB_KEY_HOME}","${WORKER_KEY_HOME}", "${VAULT_SERVER_HOME}", "${VAULT_CONCOURSE_CLIENT_HOME}" ]
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["/usr/local/bin/busyscript"]
