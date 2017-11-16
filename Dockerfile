@@ -9,13 +9,16 @@ ENV VAULT_SUBJECT="/C=DE/ST=NS/L=Hannover/O=KontextWork/OU=IT/CN=vault"
 # use this in docker-compose if you want to activate vault
 #ENV VAULT_ENABLED=1
 ENV VAULT_DO_AUTOCONFIGURE=1
+# if set, the vault is unsealed automically when the server gets restarted
+# otherwise you have to do it yourself
+ENV VAULT_DO_UNSEAL_ON_BOOT=1
 
 ADD bin/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 ADD bin/wait-for-it.sh /usr/local/bin/wait-for-it
 ADD bin/busyscript.sh /usr/local/bin/busyscript
 ADD bin/vault_client_cert.sh /usr/local/bin/vault_client_cert
-ADD bin/wait-for-it.sh /usr/local/bin/wait-for-it
 ADD bin/vault_init.sh /usr/local/bin/vault_init
+ADD bin/vault_unseal.sh /usr/local/bin/vault_unseal
 
 ADD vault_client_cert.conf /etc/vault_client_cert.conf
 
@@ -33,6 +36,7 @@ RUN apk add --update \
      /usr/local/bin/vault_init \
      /usr/local/bin/vault_init \
      /usr/local/bin/vault_client_cert \
+     /usr/local/bin/vault_unseal \
      /usr/local/bin/wait-for-it \
     && ln -s /usr/local/bin/docker-entrypoint.sh /docker-entrypoint.sh \
     && curl --location --retry 3 --silent https://releases.hashicorp.com/vault/0.9.0/vault_0.9.0_linux_amd64.zip -o /tmp/vault.zip \

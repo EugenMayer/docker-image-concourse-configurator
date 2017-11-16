@@ -17,6 +17,9 @@ fi
 
 if [ -f ${VAULT_SERVER_HOME}/server.crt ]; then
     echo "vault already configured"
+    if [ -n "${VAULT_DO_UNSEAL_ON_BOOT}" ]; then
+        vault_unseal
+    fi
 elif [ -n "${VAULT_ENABLED}" ]; then
     echo "generating vault server key"
     mkdir -p ${VAULT_SERVER_HOME}
@@ -38,11 +41,11 @@ EOF
     echo "deploying vault concourse policy"
     cat << EOF > ${VAULT_SERVER_HOME}/concourse_policy.hcl
 path "sys/*" {
-  policy = "deny"
+  capabilities = ["deny"]
 }
 
 path "secret/concourse/*" {
-  policy = "read"
+  capabilities = ["read"]
 }
 EOF
     if [ -n "${VAULT_DO_AUTOCONFIGURE}" ]; then

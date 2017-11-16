@@ -24,6 +24,9 @@ vault auth  ${VAULT_ROOT_TOKEN}
 vault write secret/concourse/main/helloworld/from-vault value="a value from vault"
 vault delete secret/concourse/main/helloworld/from-vault
 
+# add our concourse policy
+vault policy-write concourse ${VAULT_SERVER_HOME}/concourse_policy.hcl
+
 #echo "enabling approle"
 #vault auth-enable  approle
 #vault write  auth/approle/role/concourse_role secret_id_ttl=60m token_num_uses=60 token_ttl=120m token_max_ttl=300m secret_id_num_uses=400
@@ -39,7 +42,7 @@ vault_client_cert
 
 echo "deploying client certificate"
 vault auth-enable  cert
-vault write -ca-cert=/vault/server/server.crt -address=https://vault:8200 \
+vault write \
  auth/cert/certs/concourse \
  display_name=concourse \
  policies=web,prod \
