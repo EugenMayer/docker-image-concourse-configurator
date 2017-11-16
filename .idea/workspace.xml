@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="961030c3-844b-426c-88dc-b3c3e0e69dc0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/vault_unseal.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/docker-entrypoint.sh" afterPath="$PROJECT_DIR$/bin/docker-entrypoint.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/vault_init.sh" afterPath="$PROJECT_DIR$/bin/vault_init.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vault_init.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="vault_init.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/vault_init.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="70" />
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docker-entrypoint.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="docker-entrypoint.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/docker-entrypoint.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="394">
@@ -148,10 +145,10 @@
         <option value="$PROJECT_DIR$/bin/vault_client_cert.sh" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/bin/wait-for-it.sh" />
-        <option value="$PROJECT_DIR$/bin/vault_init.sh" />
         <option value="$PROJECT_DIR$/bin/vault_unseal.sh" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/bin/docker-entrypoint.sh" />
+        <option value="$PROJECT_DIR$/bin/vault_init.sh" />
       </list>
     </option>
   </component>
@@ -327,12 +324,12 @@
       <updated>1510749656299</updated>
       <workItem from="1510749657562" duration="4705000" />
       <workItem from="1510756881598" duration="7234000" />
-      <workItem from="1510817786665" duration="8203000" />
+      <workItem from="1510817786665" duration="8565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20142000" />
+    <option name="totallyTimeSpent" value="20504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2677" y="188" width="1807" height="866" extended-state="0" />
@@ -528,18 +525,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/vault_init.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/docker-entrypoint.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="53" column="6" lean-forward="true" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/vault_init.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>

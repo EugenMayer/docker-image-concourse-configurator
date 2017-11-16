@@ -2,6 +2,7 @@
 # set -x
 set -e
 
+# for more see https://www.vaultproject.io/docs/commands/environment.html
 export VAULT_ADDR=https://vault:8200
 export VAULT_SKIP_VERIFY=true
 export VAULT_CACERT=/vault/server/server.crt
