@@ -7,7 +7,7 @@ export VAULT_ADDR=https://vault:8200
 export VAULT_SKIP_VERIFY=true
 
 echo "waiting for vault to start up.."
-wait-for-it vault 8200
+wait-for-it -h vault -p 8200
 echo "..vault up"
 
 vault init -check || true  # should return 'Vault is not initialized'
