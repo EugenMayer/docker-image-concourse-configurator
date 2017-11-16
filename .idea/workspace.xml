@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="961030c3-844b-426c-88dc-b3c3e0e69dc0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/vault_init.sh" afterPath="$PROJECT_DIR$/bin/vault_init.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="vault_init.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/vault_init.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,6 +107,8 @@
       <find>poli</find>
       <find>VAUT_ENABLED</find>
       <find>VAULT_DO_AUTOCONFIGURE</find>
+      <find>export VAULT_ADDR=https://vault:8200</find>
+      <find>DOCKER_IP</find>
     </findStrings>
     <replaceStrings>
       <replace>VAULT_DO_AUTOCONFIGURE</replace>
@@ -309,12 +312,12 @@
       <updated>1510749656299</updated>
       <workItem from="1510749657562" duration="4705000" />
       <workItem from="1510756881598" duration="7234000" />
-      <workItem from="1510817786665" duration="4052000" />
+      <workItem from="1510817786665" duration="4758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15991000" />
+    <option name="totallyTimeSpent" value="16697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2677" y="188" width="1807" height="866" extended-state="0" />
@@ -512,8 +515,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/vault_init.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
