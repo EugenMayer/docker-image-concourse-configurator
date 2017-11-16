@@ -46,6 +46,6 @@ vault auth-enable  cert
 vault write \
  auth/cert/certs/concourse \
  display_name=concourse \
- policies=web,prod \
+ policies=default,concourse \
  certificate=@/vault/concourse/cert.pem \
  ttl=3600
