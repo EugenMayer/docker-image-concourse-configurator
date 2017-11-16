@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="961030c3-844b-426c-88dc-b3c3e0e69dc0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/vault_init.sh" afterPath="$PROJECT_DIR$/bin/vault_init.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/bin/vault_init.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -109,6 +108,7 @@
       <find>VAULT_DO_AUTOCONFIGURE</find>
       <find>export VAULT_ADDR=https://vault:8200</find>
       <find>DOCKER_IP</find>
+      <find>-ca-cert=${VAULT_SERVER_HOME}/server.crt -address=${VAULT_ADDR}</find>
     </findStrings>
     <replaceStrings>
       <replace>VAULT_DO_AUTOCONFIGURE</replace>
@@ -312,16 +312,15 @@
       <updated>1510749656299</updated>
       <workItem from="1510749657562" duration="4705000" />
       <workItem from="1510756881598" duration="7234000" />
-      <workItem from="1510817786665" duration="4758000" />
+      <workItem from="1510817786665" duration="5016000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16697000" />
+    <option name="totallyTimeSpent" value="16955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2677" y="188" width="1807" height="866" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -516,7 +515,7 @@
     <entry file="file://$PROJECT_DIR$/bin/vault_init.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
