@@ -5,6 +5,11 @@ set -e
 export DOCKER_IP=vault
 export VAULT_ADDR=https://vault:8200
 export VAULT_SKIP_VERIFY=true
+
+echo "waiting for vault to start up.."
+wait-for-it vault 8200
+echo "..vault up"
+
 vault init -check || true  # should return 'Vault is not initialized'
 vault init -ca-cert=${VAULT_SERVER_HOME}/server.crt -address=${VAULT_ADDR} -key-shares=1 -key-threshold=1 | tee -a ${VAULT_SERVER_HOME}/init_output | awk 'BEGIN{OFS=""} /Unseal/ {print "export VAULT_UNSEAL_KEY=",$4};/Root/ {print "export VAULT_ROOT_TOKEN=",$4}' > ${VAULT_SERVER_HOME}/init_vars
 

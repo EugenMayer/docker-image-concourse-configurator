@@ -16,7 +16,7 @@ else
 fi
 
 if [ -f ${VAULT_SERVER_HOME}/server.crt ]; then
-  echo "vault already configured"
+    echo "vault already configured"
 elif [ -n "${VAULT_ENABLED}" ]; then
     echo "generating vault server key"
     mkdir -p ${VAULT_SERVER_HOME}
@@ -49,8 +49,6 @@ EOF
         echo "Auto-configuring vault"
         vault_init
     fi
-    fi
 fi
-
 
 exec $@
