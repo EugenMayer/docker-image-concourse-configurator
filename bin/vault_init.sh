@@ -48,4 +48,4 @@ vault write \
  display_name=concourse \
  policies=default,concourse \
  certificate=@/vault/concourse/cert.pem \
- ttl=3600
+ ttl=36000
