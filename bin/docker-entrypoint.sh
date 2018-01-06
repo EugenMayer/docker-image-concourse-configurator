@@ -2,17 +2,27 @@
 #set -x
 set -e
 
-if [ -f ${WEB_KEY_HOME}/tsa_host_key ]; then
-    echo "keys exists - no need to regenerate."
-else
-    echo "generating keys.."
-    ssh-keygen -t rsa -f ${WEB_KEY_HOME}/tsa_host_key -N ''
-    ssh-keygen -t rsa -f ${WEB_KEY_HOME}/session_signing_key -N ''
 
-    ssh-keygen -t rsa -f ${WORKER_KEY_HOME}/worker_key -N ''
+if [ -n "${DO_GENERATE_TSA_KEYS}" ]; then
+    if [ -f ${WEB_KEY_HOME}/tsa_host_key ]; then
+        echo "keys tsa exists - no need to regenerate."
+    else
+        echo "generating  tsa keys.."
+        ssh-keygen -t rsa -f ${WEB_KEY_HOME}/tsa_host_key -N ''
+        ssh-keygen -t rsa -f ${WEB_KEY_HOME}/session_signing_key -N ''
 
-    cp ${WORKER_KEY_HOME}/worker_key.pub ${WEB_KEY_HOME}/authorized_worker_keys
-    cp ${WEB_KEY_HOME}/tsa_host_key.pub  ${WORKER_KEY_HOME}
+        cp ${WEB_KEY_HOME}/tsa_host_key.pub  ${WORKER_KEY_HOME}
+    fi
+fi
+
+if [ -n "${DO_GENERATE_WORKER_KEYS}" ]; then
+    if [ -f ${WORKER_KEY_HOME}/worker_key ]; then
+        echo "worker keys exists - no need to regenerate."
+    else
+        echo "generating worker keys.."
+        ssh-keygen -t rsa -f ${WORKER_KEY_HOME}/worker_key -N ''
+        cp ${WORKER_KEY_HOME}/worker_key.pub ${WEB_KEY_HOME}/authorized_worker_keys
+    fi
 fi
 
 if [ -f ${VAULT_SERVER_HOME}/server.crt ]; then

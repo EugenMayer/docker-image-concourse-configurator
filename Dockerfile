@@ -1,5 +1,7 @@
 FROM alpine:3.6
 
+ENV DO_GENERATE_TSA_KEYS=1
+ENV DO_GENERATE_WORKER_KEYS=1
 ENV WEB_KEY_HOME=/concourse-keys/web
 ENV WORKER_KEY_HOME=/concourse-keys/worker
 ENV VAULT_SERVER_HOME=/vault/server
