@@ -3,7 +3,14 @@
   <component name="BashSupportProjectSettings">
     <option name="globalVariables">
       <set>
+        <option value="DO_GENERATE_TSA_KEYS" />
+        <option value="DO_GENERATE_WORKER_KEYS" />
+        <option value="VAULT_DO_AUTOCONFIGURE" />
+        <option value="VAULT_DO_UNSEAL_ON_BOOT" />
         <option value="VAULT_ROOT_TOKEN" />
+        <option value="VAULT_SERVER_HOME" />
+        <option value="WEB_KEY_HOME" />
+        <option value="WORKER_KEY_HOME" />
       </set>
     </option>
   </component>
