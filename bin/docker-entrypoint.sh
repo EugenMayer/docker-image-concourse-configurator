@@ -33,7 +33,7 @@ if [ -f ${VAULT_SERVER_HOME}/server.crt ]; then
 elif [ -n "${VAULT_ENABLED}" ]; then
     echo "generating vault server key"
     mkdir -p ${VAULT_SERVER_HOME}
-	openssl req -newkey rsa:4096 -nodes -sha256 -keyout ${VAULT_SERVER_HOME}/server.key -x509 -days 365 -out ${VAULT_SERVER_HOME}/server.crt -subj ${VAULT_SUBJECT}
+	openssl req -newkey rsa:4096 -nodes -sha256 -keyout ${VAULT_SERVER_HOME}/server.key -x509 -days 1095 -out ${VAULT_SERVER_HOME}/server.crt -subj ${VAULT_SUBJECT}
 	# put the server.crt into the client folder so we can validate it on concourse too - we do not mount the server folder there
 	cp ${VAULT_SERVER_HOME}/server.crt ${VAULT_CONCOURSE_CLIENT_HOME}/server.crt
 
