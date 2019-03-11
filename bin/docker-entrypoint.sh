@@ -15,6 +15,8 @@ if [ -n "${DO_GENERATE_TSA_KEYS}" ]; then
     fi
 fi
 
+# this could be done using the concourse generate-key binary option, @see https://concourse-ci.org/download.html#v500-note-19
+# but this would need us to deploy the binary into the configurator .. and this just makes more effort then anything we gain
 if [ -n "${DO_GENERATE_WORKER_KEYS}" ]; then
     if [ -f ${WORKER_KEY_HOME}/worker_key ]; then
         echo "worker keys exists - no need to regenerate."

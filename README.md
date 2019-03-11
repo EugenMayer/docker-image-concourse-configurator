@@ -12,5 +12,9 @@ It has also vault support, generating keys for the value, if you set
 
 Those are some examples
 
-- https://github.com/EugenMayer/concourseci-server-boilerplate - that is your best starting point
-- https://github.com/EugenMayer/docker-rancher-extra-catalogs/tree/master/templates - if you rancher, you are set to go
+You find the docker image at [eugenmayer/concourse-configurator](https://hub.docker.com/r/eugenmayer/concourse-configurator)
+
+
+- Use the tag for your Concourse baseline version, so `3.x`, `4.x`, `5.x`
+- That is your best [starting point](https://github.com/EugenMayer/concourseci-server-boilerplate)
+- For all rancher users, see [this catalog](https://github.com/EugenMayer/docker-rancher-extra-catalogs/tree/master/templates)
