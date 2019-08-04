@@ -8,8 +8,10 @@ if [ -n "${DO_GENERATE_TSA_KEYS}" ]; then
         echo "keys tsa exists - no need to regenerate."
     else
         echo "generating  tsa keys.."
-        ssh-keygen -t rsa -f ${WEB_KEY_HOME}/tsa_host_key -N ''
-        ssh-keygen -t rsa -f ${WEB_KEY_HOME}/session_signing_key -N ''
+        # we need -PEM since concourse is not compatible with newer ssh-keygen ( > alpine 3.6 )
+        # see https://github.com/concourse/concourse/issues/2949
+        ssh-keygen -m PEM -t rsa -f ${WEB_KEY_HOME}/tsa_host_key -N ''
+        ssh-keygen -m PEM -t rsa -f ${WEB_KEY_HOME}/session_signing_key -N ''
 
         cp ${WEB_KEY_HOME}/tsa_host_key.pub  ${WORKER_KEY_HOME}
     fi
