@@ -20,10 +20,14 @@ echo "export VAULT_CACERT=${VAULT_CACERT}" >> ${VAULT_SERVER_HOME}/init_vars
 source ${VAULT_SERVER_HOME}/init_vars
 vault operator unseal  ${VAULT_UNSEAL_KEY}
 vault login ${VAULT_ROOT_TOKEN}
+vault secrets enable -version=2 -path=secret kv
+# this does upgrade from < 1.0.0
+vault kv enable-versioning secret/ > /dev/null 2>&1 || true 
 
 # a test
-vault write secret/concourse/main/helloworld/from-vault value="a value from vault"
-vault delete secret/concourse/main/helloworld/from-vault
+echo "trying to test write ops on vault"
+vault kv put secret/concourse/main/helloworld/from-vault value="a value from vault"
+vault kv delete secret/concourse/main/helloworld/from-vault
 
 # add our concourse policy
 vault policy write concourse ${VAULT_SERVER_HOME}/concourse_policy.hcl
@@ -32,7 +36,7 @@ echo "setting up client cert based access"
 vault_client_cert
 
 echo "deploying client certificate"
-vault auth enable  cert
+vault auth enable cert
 vault write \
  auth/cert/certs/concourse \
  display_name=concourse \
