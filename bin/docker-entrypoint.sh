@@ -24,7 +24,9 @@ if [ -n "${DO_GENERATE_WORKER_KEYS}" ]; then
         echo "worker keys exists - no need to regenerate."
     else
         echo "generating worker keys.."
-        ssh-keygen -t rsa -f ${WORKER_KEY_HOME}/worker_key -N ''
+        # we need -PEM since concourse is not compatible with newer ssh-keygen ( > alpine 3.6 )
+        # see https://github.com/concourse/concourse/issues/2949
+        ssh-keygen -m PEM -t rsa -f ${WORKER_KEY_HOME}/worker_key -N ''
         cp ${WORKER_KEY_HOME}/worker_key.pub ${WEB_KEY_HOME}/authorized_worker_keys
     fi
 fi
