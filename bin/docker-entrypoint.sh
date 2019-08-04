@@ -38,6 +38,9 @@ elif [ -n "${VAULT_ENABLED}" ]; then
 	openssl req -newkey rsa:4096 -nodes -sha256 -keyout ${VAULT_SERVER_HOME}/server.key -x509 -days 1095 -out ${VAULT_SERVER_HOME}/server.crt -subj ${VAULT_SUBJECT}
 	# put the server.crt into the client folder so we can validate it on concourse too - we do not mount the server folder there
 	cp ${VAULT_SERVER_HOME}/server.crt ${VAULT_CONCOURSE_CLIENT_HOME}/server.crt
+        echo "chown server.key so vault can access it"
+        chown root:1000 ${VAULT_SERVER_HOME}/server.key
+        chmod g+r ${VAULT_SERVER_HOME}/server.key
 
 	echo "deploying vault config"
     cat << EOF > ${VAULT_SERVER_HOME}/vault.hcl

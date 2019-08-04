@@ -1,4 +1,5 @@
-FROM alpine:3.7
+# we cannot switch to alpine 3.10 due to https://github.com/vishnubob/wait-for-it/issues/5
+FROM alpine:3.9
 
 ENV DO_GENERATE_TSA_KEYS=1
 ENV DO_GENERATE_WORKER_KEYS=1
