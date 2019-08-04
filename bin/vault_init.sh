@@ -20,9 +20,12 @@ echo "export VAULT_CACERT=${VAULT_CACERT}" >> ${VAULT_SERVER_HOME}/init_vars
 source ${VAULT_SERVER_HOME}/init_vars
 vault operator unseal  ${VAULT_UNSEAL_KEY}
 vault login ${VAULT_ROOT_TOKEN}
-vault secrets enable -version=2 -path=secret kv
-# this does upgrade from < 1.0.0
-vault kv enable-versioning secret/ > /dev/null 2>&1 || true 
+# TODO: yet disabled version=2 since it is not yet supported by concourse
+# vault secrets enable -version=2 -path=secret kv
+vault secrets enable -version=1 -path=secret kv
+# this does the  upgrade from < 1.1.0 to a versions kv storage
+# TODO: yet disabled version=2 since it is not yet supported by concourse
+# vault kv enable-versioning secret/ > /dev/null 2>&1 || true 
 
 # a test
 echo "trying to test write ops on vault"

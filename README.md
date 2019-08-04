@@ -18,3 +18,7 @@ You find the docker image at [eugenmayer/concourse-configurator](https://hub.doc
 - Use the tag for your Concourse baseline version, so `3.x`, `4.x`, `5.x`
 - That is your best [starting point](https://github.com/EugenMayer/concourseci-server-boilerplate)
 - For all rancher users, see [this catalog](https://github.com/EugenMayer/docker-rancher-extra-catalogs/tree/master/templates)
+
+## Hints
+
+Yet we do use the KV version 1 API since Concourse ( 5.4.0 as of writing ) does not support the version 2 kv (versioned values )
