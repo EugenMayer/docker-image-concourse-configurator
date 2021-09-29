@@ -9,7 +9,7 @@ ENV WEB_KEY_HOME=/concourse-keys/web
 ENV WORKER_KEY_HOME=/concourse-keys/worker
 ENV VAULT_SERVER_HOME=/vault/server
 ENV VAULT_CONCOURSE_CLIENT_HOME=/vault/concourse
-ENV VAULT_SUBJECT="/C=DE/ST=NS/L=Hannover/O=KontextWork/OU=IT/CN=vault"
+ENV VAULT_SUBJECT="/CN=vault"
 
 # use this in docker-compose if you want to activate vault
 #ENV VAULT_ENABLED=1
@@ -42,6 +42,7 @@ ADD bin/vault_client_cert.sh /usr/local/bin/vault_client_cert
 ADD bin/vault_init.sh /usr/local/bin/vault_init
 ADD bin/vault_unseal.sh /usr/local/bin/vault_unseal
 ADD vault_client_cert.conf /etc/vault_client_cert.conf
+ADD vault_server_cert.conf /etc/vault_server_cert.conf
 
 RUN chmod +x \
   /usr/local/bin/docker-entrypoint.sh \
