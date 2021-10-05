@@ -35,7 +35,7 @@ echo "----------------------------------------"
 echo "-------------- VAULT--------------------"
 echo "----------------------------------------"
 
-if [ -f ${VAULT_SERVER_HOME}/server.crt ] && [ -f ${VAULT_SERVER_HOME}/cert.pem ]; then
+if [ -f ${VAULT_SERVER_HOME}/server.crt ]; then
     echo "vault already configured"
     if [ -n "${VAULT_DO_UNSEAL_ON_BOOT}" ]; then
         vault_unseal
