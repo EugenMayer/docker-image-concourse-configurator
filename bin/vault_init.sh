@@ -8,7 +8,7 @@ export VAULT_SKIP_VERIFY=true
 export VAULT_CACERT=/vault/server/server.crt
 
 echo "waiting for vault to start up.."
-wait-for-it -h vault -p 8200
+wait-for-it -t 30 -h vault -p 8200
 echo "..vault up"
 
 vault operator init -status || true  # should return 'Vault is not initialized'

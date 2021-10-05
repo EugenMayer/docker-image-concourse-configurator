@@ -1,5 +1,5 @@
 build:
-	docker build . -t eugenmayer/concourse-configurator:5.x
+	docker build . -t ghcr.io/eugenmayer/concourse-configurator:7.x
 
 push:
-	docker push eugenmayer/concourse-configurator:5.x
+	docker push ghcr.io/eugenmayer/concourse-configurator:7.x

@@ -31,6 +31,10 @@ if [ -n "${DO_GENERATE_WORKER_KEYS}" ]; then
     fi
 fi
 
+echo "----------------------------------------"
+echo "-------------- VAULT--------------------"
+echo "----------------------------------------"
+
 if [ -f ${VAULT_SERVER_HOME}/server.crt ]; then
     echo "vault already configured"
     if [ -n "${VAULT_DO_UNSEAL_ON_BOOT}" ]; then
@@ -39,7 +43,7 @@ if [ -f ${VAULT_SERVER_HOME}/server.crt ]; then
 elif [ -n "${VAULT_ENABLED}" ]; then
     echo "generating vault server key"
     mkdir -p ${VAULT_SERVER_HOME}
-	openssl req -newkey rsa:4096 -nodes -sha256 -keyout ${VAULT_SERVER_HOME}/server.key -x509 -days 1095 -out ${VAULT_SERVER_HOME}/server.crt -subj ${VAULT_SUBJECT}
+    openssl req -extensions 'v3_req' -config /etc/vault_server_cert.conf -new -newkey rsa:4096 -nodes -keyout ${VAULT_SERVER_HOME}/server.key -x509 -days 1095 -out ${VAULT_SERVER_HOME}/server.crt
 	# put the server.crt into the client folder so we can validate it on concourse too - we do not mount the server folder there
 	cp ${VAULT_SERVER_HOME}/server.crt ${VAULT_CONCOURSE_CLIENT_HOME}/server.crt
         echo "chown server.key so vault can access it"
