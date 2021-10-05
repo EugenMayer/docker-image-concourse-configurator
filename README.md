@@ -4,16 +4,19 @@ This concourse-ci server helper will try to configure you concourse server right
 
 - generates keys for concourse and puts those onto a volume, to be shared with concourse for production use
 - if vault is enabled, does the complete vault setup for you. Generating vault server cert/kets, enabling cert based auth, creating client certs and sharing those with concourse-ci-server-web so it can authenticate
-It has also vault support, generating keys for the value, if you set
+  It has also vault support, generating keys for the value, if you set
 
-    -e VAULT_ENABLED=1
+      -e VAULT_ENABLED=1
 
 ## Usage
 
 Those are some examples
 
-You find the docker image at [eugenmayer/concourse-configurator](https://hub.docker.com/r/eugenmayer/concourse-configurator)
+You find the docker image on github [eugenmayer/concourse-configurator](https://github.com/EugenMayer/docker-image-concourse-configurator/pkgs/container/concourse-configurator))
 
+```
+docker pull ghcr.io/eugenmayer/concourse-configurator:7.x
+```
 
 - Use the tag for your Concourse baseline version, so `3.x`, `4.x`, `5.x`
 - That is your best [starting point](https://github.com/EugenMayer/concourseci-server-boilerplate)
